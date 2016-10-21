@@ -3,6 +3,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 import './loading.html';
+import './results.html';
 
 Router.route('/', function () {
 	this.render('main');
