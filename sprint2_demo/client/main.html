@@ -1,14 +1,79 @@
 <head>
-  <title>Sprint 2 Demo</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>find.ai</title>
   <meta name="google-signin-scope" content="profile email https://www.googleapis.com/auth/gmail.readonly">
   <meta name="google-signin-client_id" content="991614631111-k3tl7jsraq67679gkgadci7dn1buujjf.apps.googleusercontent.com">
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-
 </head>
-<body>
-  <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-</body>	
-<template name="main"> 
-  <br>
-  <button type="button" class="btn btn-primary" onclick="location.href = '/loading'">Analyze!</button>
+
+  <body>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script>
+  function signOut() {
+  	var auth2 = gapi.auth2.getAuthInstance();
+  	auth2.signOut();
+  };
+  </script>
+  </body>
+
+<template name="main">
+  <!--<br>-->
+  <!---<button type="button" class="btn btn-primary" onclick="location.href = '/loading'">Analyze!</button>-->
+
+  <div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+      <div class="cover-container">
+
+        <div class="masthead clearfix">
+
+          <div class="inner">
+          <img src="/images/findai-logo.png" style="postion:fixed;left:0;width:180px">
+            <!--<h2 class="masthead-brand">find.ai</h2>-->
+          </div>
+        </div>
+
+        <div class="inner cover">
+          <h1 class="cover-heading">Artificial Intelligence to improve your life</h1>
+          <p class="lead" style="font-size:1.6em">We analyze your email to discover bots that can save you time and money.</p>
+        </div>
+
+        <div style="width:38%;margin: 0 auto;padding:5em;">
+            <div class="g-signin2" data-longtitle="true" data-onsuccess="onSignIn" data-theme="dark" style="width:240px"></div>
+        </div>
+        <p style="padding:30px"></p>
+           <div class="row">
+              <div class="col-md-4">
+
+                <p class="lead"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>  Upload Emails</p>
+              </div>
+              <div class="col-md-4">
+
+                <p class="lead"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Analyze Interests</p>
+              </div>
+              <div class="col-md-4">
+                <p class="lead"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Discover AI</p>
+              </div>
+           </div>
+
+
+        <div class="mastfoot">
+          <div class="inner">
+            <p>Sprint2 Demo, by x.ai dreamteam.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  <script>
+	function onSignIn(googleUser) {
+		signOut();
+		location.href="/results";
+	}
+  </script>
 </template>
