@@ -4,6 +4,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import './main.html';
 import './loading.html';
 import './results.html';
+import './dashboard.html';
 
 Router.route('/', function () {
 	this.render('main');
@@ -11,6 +12,7 @@ Router.route('/', function () {
 
 Router.route('/Loading');
 Router.route('/Results');
+Router.route('/Dashboard');
 
 function onSignIn(googleUser) {
         // Useful data for your client-side scripts:

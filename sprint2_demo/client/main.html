@@ -21,59 +21,205 @@
   <!--<br>-->
   <!---<button type="button" class="btn btn-primary" onclick="location.href = '/loading'">Analyze!</button>-->
 
-  <div class="site-wrapper">
-
-    <div class="site-wrapper-inner">
-
-      <div class="cover-container">
-
-        <div class="masthead clearfix">
-
-          <div class="inner">
-          <img src="/images/findai-logo.png" style="postion:fixed;left:0;width:180px">
-            <!--<h2 class="masthead-brand">find.ai</h2>-->
+  <!-- Navigation -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">find.ai</a>
           </div>
-        </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+      <!--    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                  <li>
+                      <a href="404.html">About</a>
+                  </li>
+                  <li>
+                      <a href="404.html">Services</a>
+                  </li>
+                  <li>
+                      <a href="404.html">Contact</a>
+                  </li>
+              </ul>
+          </div>-->
+          <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+  </nav>
 
-        <div class="inner cover">
-          <h1 class="cover-heading">Artificial Intelligence to improve your life</h1>
-          <p class="lead" style="font-size:1.6em">We analyze your email to discover bots that can save you time and money.</p>
-        </div>
+  <!-- Page Content -->
+  <div class="container">
 
-        <div style="width:38%;margin: 0 auto;padding:5em;">
-            <div class="g-signin2" data-longtitle="true" data-onsuccess="onSignIn" data-theme="dark" style="width:240px"></div>
-        </div>
-        <p style="padding:30px"></p>
-           <div class="row">
-              <div class="col-md-4">
+      <div class="row">
 
-                <p class="lead"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>  Upload Emails</p>
+          <!-- Blog Entries Column -->
+          <div class="col-md-8">
+
+              <h1 class="page-header">
+                  Bots Bots Bots
+                  <small>we find bots for you</small>
+              </h1>
+
+              <div class="row botlist">
+                <!-- First Bot -->
+                  <div class="col-sm-12 col-md-12">
+                    <div class="bot">
+                      <div class="row">
+                      <div class="col-sm-2 col-md-2">
+                        <img class="fill avatar" src="/images/dashbot.png" alt="">
+                      </div>
+                      <div class="col-sm-10 col-md-10">
+                        <h4><a href="">dashbot.io</a>
+                        </h4>
+                        <p>Analytics platform for your messenger and slack bots
+                        </p>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Second Bot -->
+                  <div class="col-sm-12 col-md-12">
+                    <div class="bot">
+                      <div class="row">
+                      <div class="col-sm-2 col-md-2">
+                        <img class="fill avatar" src="/images/dashbot.png" alt="">
+                      </div>
+                      <div class="col-sm-10 col-md-10">
+                        <h4><a href="">dashbot.io</a>
+                        </h4>
+                        <p>Analytics platform for your messenger and slack bots
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                  <!-- Second Bot -->
+                  <div class="col-sm-12 col-md-12">
+                    <div class="bot">
+                      <div class="row">
+                      <div class="col-sm-2 col-md-2">
+                        <img class="fill avatar" src="/images/dashbot.png" alt="">
+                      </div>
+                      <div class="col-sm-10 col-md-10">
+                        <h4><a href="">dashbot.io</a>
+                        </h4>
+                        <p>Analytics platform for your messenger and slack bots
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
               </div>
-              <div class="col-md-4">
-
-                <p class="lead"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Analyze Interests</p>
-              </div>
-              <div class="col-md-4">
-                <p class="lead"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Discover AI</p>
-              </div>
-           </div>
-
-
-        <div class="mastfoot">
-          <div class="inner">
-            <p>Sprint2 Demo, by x.ai dreamteam.</p>
+              <ul class="pager">
+                  <li class="previous">
+                      <a href="#">&larr; Previous</a>
+                  </li>
+                  <li class="next">
+                      <a href="#">Next &rarr;</a>
+                  </li>
+              </ul>
           </div>
-        </div>
+
+              <!-- Pager -->
+
+
+
+          <!-- Blog Sidebar Widgets Column -->
+          <div class="col-md-4">
+            <!-- Side Widget Well -->
+            <div class="well">
+                <h4 style="text-align:center">Personalize</h4>
+                <div style="width:100%;margin: 0 auto;padding:5em;">
+                   <!--<div class="g-signin2" data-longtitle="true" data-onsuccess="onSignIn" data-theme="dark" style="width:200px text-align:center"></div>-->
+                   <a type="button" class="btn btn-primary btn-block" onclick="newSignIn()">Go!</a>
+                </div>
+                <!--<a type="button" class="btn btn-primary btn-block" href="index.html">Go!</a>-->
+            </div>
+              <!-- Blog Search Well -->
+              <div class="well">
+                  <h4>Bot Search</h4>
+                  <div class="input-group">
+                      <input type="text" class="form-control">
+                      <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">
+                              <span class="glyphicon glyphicon-search"></span>
+                      </button>
+                      </span>
+                  </div>
+                  <!-- /.input-group -->
+              </div>
+
+              <!-- Blog Categories Well -->
+              <div class="well">
+                  <h4>Blog Categories</h4>
+                  <div class="row">
+                      <div class="col-lg-6">
+                          <ul class="list-unstyled">
+                              <li><a href="#">Category Name</a>
+                              </li>
+                              <li><a href="#">Category Name</a>
+                              </li>
+                              <li><a href="#">Category Name</a>
+                              </li>
+                              <li><a href="#">Category Name</a>
+                              </li>
+                          </ul>
+                      </div>
+                      <!-- /.col-lg-6 -->
+                      <div class="col-lg-6">
+                          <ul class="list-unstyled">
+                              <li><a href="#">Category Name</a>
+                              </li>
+                              <li><a href="#">Category Name</a>
+                              </li>
+                              <li><a href="#">Category Name</a>
+                              </li>
+                              <li><a href="#">Category Name</a>
+                              </li>
+                          </ul>
+                      </div>
+                      <!-- /.col-lg-6 -->
+                  </div>
+                  <!-- /.row -->
+              </div>
+
+
+
+          </div>
 
       </div>
+      <!-- /.row -->
 
-    </div>
+      <hr>
+
+      <!-- Footer -->
+      <footer>
+          <div class="row">
+              <div class="col-lg-12">
+                  <p>Copyright &copy; Your Website 2014</p>
+              </div>
+              <!-- /.col-lg-12 -->
+          </div>
+          <!-- /.row -->
+      </footer>
 
   </div>
+  <!-- /.container -->
   <script>
-	function onSignIn(googleUser) {
-		signOut();
-		location.href="/results";
-	}
+  function onSignIn(googleUser) {
+    signOut();
+    location.href="/results";
+  }
+
+  function newSignIn(){
+    location.href="/dashboard";
+  }
   </script>
+
 </template>
