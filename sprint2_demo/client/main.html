@@ -5,6 +5,7 @@
   <title>find.ai</title>
   <meta name="google-signin-scope" content="profile email https://www.googleapis.com/auth/gmail.readonly">
   <meta name="google-signin-client_id" content="991614631111-k3tl7jsraq67679gkgadci7dn1buujjf.apps.googleusercontent.com">
+  <!--meta name="google-signin-access_type" content="offline"-->
 </head>
 
   <body>
@@ -13,7 +14,61 @@
   function signOut() {
   	var auth2 = gapi.auth2.getAuthInstance();
   	auth2.signOut();
+    return "Signed Out!"
   };
+
+function onSignIn(googleUser) {
+  grantOffline(googleUser);
+	/*var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+        debugger;
+
+	//signOut();
+	location.href="/results";*/
+ }
+ function grantOffline(googleUser) {
+
+   /*gapi.auth2.getAuthInstance().grantOfflineAccess({
+     'scope':'profile email https://www.googleapis.com/auth/gmail.readonly',
+     'redirect_uri':'postmessage'
+   });*/
+   //authuser: user.getAuthResponse().session_state.extraQueryParams.authuser
+
+   var user = googleUser;
+   gapi.auth2.getAuthInstance().grantOfflineAccess({
+     'scope':'profile email https://www.googleapis.com/auth/gmail.readonly',
+     'redirect_uri':'postmessage'
+   });
+
+   var profile = googleUser.getBasicProfile();
+         console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+         console.log('Full Name: ' + profile.getName());
+         console.log('Given Name: ' + profile.getGivenName());
+         console.log('Family Name: ' + profile.getFamilyName());
+         console.log("Image URL: " + profile.getImageUrl());
+         console.log("Email: " + profile.getEmail());
+
+         // The ID token you need to pass to your backend:
+         var id_token = googleUser.getAuthResponse().id_token;
+         console.log("ID Token: " + id_token);
+         //debugger;
+
+ 	//signOut();
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open("GET", url, false);
+  xmlHttp.send(null);
+ 	//location.href="/results";
+ }
+
   </script>
   </body>
 
@@ -70,10 +125,4 @@
     </div>
 
   </div>
-  <script>
-	function onSignIn(googleUser) {
-		signOut();
-		location.href="/results";
-	}
-  </script>
 </template>
