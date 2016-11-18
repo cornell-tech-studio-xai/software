@@ -49,6 +49,10 @@ footer {
     background-color: #f1f1f1;
 }
 /*Customize Bootstrap */
+.navbar-inverse {
+    background-color: #563d7c;
+    border-color: #563d7c;
+}
 .form-control {
     border: 1px solid #563d7c;
     border-radius: 0px;

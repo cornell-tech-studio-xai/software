@@ -8,7 +8,7 @@ Template.dashboard.events({
 		chatbox = document.getElementById('live-chat-box')
 		if(chatbox.style.visibility == 'visible')
 			chatbox.style.visibility = 'hidden'
-		else 
+		else
 			chatbox.style.visibility = 'visible';
 	}
 });
