@@ -101,7 +101,9 @@ def getEmailStats(service, thread_ids):
 
 
     # purposely rounding to integer value, nobody wants to see floats in a gui
-    emails_per_thread = num_emails / num_threads
+    emails_per_thread = 0
+    if num_threads > 0:
+        emails_per_thread = num_emails / num_threads
 
     # in hours
     #time_spent = (meetings_meta['sent'] * 3 + meetings_meta['received']) / float(60)
