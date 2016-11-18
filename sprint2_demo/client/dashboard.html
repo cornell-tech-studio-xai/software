@@ -1,4 +1,5 @@
 <template name="dashboard">
+    {{> liveChatBox}}
 
   <div id="wrapper">
 
@@ -192,7 +193,7 @@
                                     </div>
                                     <div class="col-sm-9 col-md-9">
                                       <h1 class="heading">x.ai
-                                        <button type="button" class="btn btn-default">Learn More</button>
+                                        <button type="button" class="test btn btn-default">Chat with Amy</button>
                                       </h1>
                                     </div>
 
@@ -235,7 +236,7 @@
 
   	document.body.style.backgroundImage = "url(/images/loading.gif)";
 	document.body.style.backgroundRepeat = "no-repeat";
-	document.body.style.backgroundSize = "cover";
+	document.body.style.backgroundSize = "cover"
 
     $('#wrapper').hide();
     auth_code = Router.current().params.auth_code;
