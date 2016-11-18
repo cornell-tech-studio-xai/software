@@ -20,7 +20,7 @@ Meteor.startup(function () {
     // you need to initialize your chatBox here
     // you need to provide your client app id here
     // you need to create a client app in the host app
-    liveChat.init('YezcjRwBEAmKSEEjx');
+    liveChat.init('oAnps6BBiBiZ248vS');
 });
 
 Router.map(function () {

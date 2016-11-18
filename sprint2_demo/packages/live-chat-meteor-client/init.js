@@ -1,7 +1,7 @@
 liveChat = {
     init(clientAppId) {
         let self = this;
-        const endpoint = 'http://localhost:3000';
+        const endpoint = 'http://localhost:5050';
         this.userSessionId = Random.id();
         this.clientAppId = clientAppId;
         this.ddp = DDP.connect(endpoint);
