@@ -25,3 +25,4 @@ accounts-ui
 iron:router
 twbs:bootstrap
 pascoual:pdfjs
+fortawesome:fontawesome

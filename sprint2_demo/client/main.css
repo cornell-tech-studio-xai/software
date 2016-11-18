@@ -7,18 +7,28 @@
 /* Global Styles */
 
 body {
-    padding-top: 70px;
+    /*padding-top: 70px;*/
     margin-top: 100px;
     background-color: #fff;
 }
+
 footer {
     margin: 50px 0;
 }
+
 .botlist .bot {
       padding:1.5em;
       min-height: 10em;
-      border-bottom: 1px solid #e4e4e4
+      border-bottom: 1px solid #e4e4e4;
     }
+
+.botlist .bot p{
+  color:#959595;
+  font-size:1em;
+}
+.botlist .bot a{
+  color:#563d7c;
+}
 @media(min-width:768px) {
     body {
         margin-top: 50px;
@@ -34,10 +44,54 @@ footer {
     padding: 0;
     background-color: #f1f1f1;
 }
+/*Customize Bootstrap */
+.form-control {
+    border: 1px solid #563d7c;
+    border-radius: 0px;
+  }
+.tag-ai{
+  display: inline-block;
+  padding: .25em .4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25rem;
+  background-color: #563d7c;
+  border:1px solid  #563d7c
+}
+.well {
+    min-height: 2em;
+    padding: 19px;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    background-color: #f5f5f5;
+    border: 0px;
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
 .btn-default{
   color: #563d7c;
   border-color: #563d7c;
   background-color: #fff;
+}
+.btn-primary{
+  background-color: #563d7c;
+  border-color: #563d7c;
+}
+.btn-primary :hover,  .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+  background-color: #302640;
+}
+
+.list-unstyled li > a{
+  color:#563d7c;
+}
+.pager li > a{
+  color:#563d7c;
 }
 .btn{
   border-radius: 0px;

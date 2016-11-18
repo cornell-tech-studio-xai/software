@@ -5,14 +5,17 @@ import './main.html';
 import './loading.html';
 import './results.html';
 import './dashboard.html';
+import './test.html';
 
 Router.route('/', function () {
 	this.render('main');
 });
 
+
 Router.route('/Loading');
 Router.route('/Results');
-Router.route('/Dashboard');
+Router.route('/dashboard');
+Router.route('/test');
 
 function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
