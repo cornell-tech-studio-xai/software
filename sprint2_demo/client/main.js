@@ -14,18 +14,18 @@ Router.route('/', function () {
 
 Router.route('/Loading');
 //Router.route('/Results');
-Router.route('/dashboard');
+//Router.route('/dashboard');
 Router.route('/test');
 
-/*Router.map(function () {
-   this.route('results', {
-        path: '/results/:auth_code',
+Router.map(function () {
+   this.route('dashboard', {
+        path: '/dashboard/:auth_code',
         data: function () {
-                return auth_code;
+                return {"auth_code": this.params.auth_code};
         }
 
    })
-});*/
+});
 
 function onSignIn(googleUser) {
         // Useful data for your client-side scripts:

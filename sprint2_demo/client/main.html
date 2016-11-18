@@ -31,7 +31,7 @@ function onSignIn(googleUser) {
          //callPython(auth_code);
          console.log("Parsing E-Mails...");
          signOut();
-         location.href="/results/testcode"
+         location.href="/dashboard/" + auth_code
      });
      /*var profile = googleUser.getBasicProfile();
      console.log("ID: " + profile.getId()); // Don't send this directly to your server!
