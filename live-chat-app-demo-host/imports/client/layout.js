@@ -105,10 +105,25 @@ Template.chatBox.helpers({
 Template.chatBoxMessageItem.helpers({
     autoRespond: function(msg, sid) {
         console.log(msg);
-        if(msg == 'Hi'  && sid==state.get('openedChat'))
-            Meteor.call('addChatMessage', "How are you?", state.get('openedApp'), state.get('openedChat'), false);
-        else if(msg == "I'm fine. What about you?"  && sid==state.get('openedChat'))
-            Meteor.call('addChatMessage', "I was getting bored, but now you're here :) \n What would you like to know about x.ai?", state.get('openedApp'), state.get('openedChat'),false);
+        var user1 = "Hi";
+        var bot1 = "Hi Nikhil, I’m Amy from x.ai. I am your AI powered personal assistant for scheduling meetings. Want to see how I work? Just ask me any question related to scheduling, such as 'show me how you work' or 'what can you do for me'."; 
+        user2 = "How do you work?";
+        bot2 = "You can interact with me as you would with any other person – and I’ll do all the tedious email ping pong that comes along with scheduling a meeting. All you need to do is cc: amy@x.ai when sending a mail to someone you want to meet";
+        user3 = "What do I say?"
+        bot3 = "Just say: 'Hi <recipient>, I'm cc'ing my virtual assistant Amy who will find time for us to meet.'";
+        user4 = "And what will you do?"
+        bot4 = "When you sign up I'll get access to your meeting preferences and calendar. I’ll take into consideration your scheduling hours, office location, conference line, etc when I schedule your meetings.";
+        user5 = "How much do you cost?";
+        bot5 = "I’m completely FREE! But there is a wait. If you to try me now and get more powerful features, x.ai also offers a paid professional version here: https://x.ai/pricing/";
+        user6 = "How do I sign up?";
+        bot6 = "Sign up for your free trial here: https://x.ai/";
+        user_msgs = [user1, user2, user3, user4, user5, user6];
+        bot_msgs = [bot1, bot2, bot3, bot4, bot5, bot6];
+        for(i=0; i<user_msgs.length; i++){
+            if(msg==user_msgs[i] && sid==state.get('openedChat'))
+                Meteor.call('addChatMessage', bot_msgs[i], state.get('openedApp'), state.get('openedChat'), false);
+        }
+
     }
 });
 // We attach onKeydown event to be able to send new messages
