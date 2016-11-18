@@ -227,9 +227,11 @@
       Meteor.call("parseEmails", [code], function(error, results) {
           console.log(results.content);
 
+
           // Use results.content json object to create html page
 
           $('#load-text').hide();
+          document.body.style.backgroundImage = "";
           $('#wrapper').show();
       })
   }

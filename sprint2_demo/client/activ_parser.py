@@ -5,6 +5,8 @@ activ_words = {'MEETING': {'count': 0, 'sequence': []},
                 }
 meetings_meta = {"threads": [], "received": 0, "sent": 0}
 
+email_count = {"threads": 0, "emails": 0}
+
 def parseMsg(request_id, response, exception):
     if exception is not None:
         print("FAILED: parseMsg: " + str(sys.exc_info()))
@@ -25,6 +27,17 @@ def parseMsg(request_id, response, exception):
                         #else:
                         #    meetings_meta['received'] += 1
                     break
+        pass
+
+def parseThread(request_id, response, exception):
+    if exception is not None:
+        print("FAILED: parseThread: " + str(sys.exc_info()))
+        pass
+    else:
+        num_emails_this_thread = len(response['messages'])
+        if num_emails_this_thread > 1:
+            email_count['emails'] += num_emails_this_thread
+            email_count['threads'] += 1
         pass
 
 def getMessageBody(message):
@@ -84,7 +97,8 @@ def isSent(message):
     return "SENT" in message['labelIds']
 
 
-def getEmailStats(service, thread_ids):
+def getEmailStats(http, service, thread_ids):
+    '''
     num_threads = 0
     num_emails = 0
     for thread_id in thread_ids:
@@ -98,15 +112,24 @@ def getEmailStats(service, thread_ids):
         if num_emails_this_thread > 1:
             num_emails += num_emails_this_thread
             num_threads += 1
+    '''
 
+    batchGetThreads(http, service, 'me', thread_ids)
 
     # purposely rounding to integer value, nobody wants to see floats in a gui
     emails_per_thread = 0
-    if num_threads > 0:
-        emails_per_thread = num_emails / num_threads
+    if email_count['threads'] > 0:
+        emails_per_thread = email_count['emails'] / email_count['threads']
 
     # in hours
     #time_spent = (meetings_meta['sent'] * 3 + meetings_meta['received']) / float(60)
-    time_spent = (num_emails*3) / float(60)
+    time_spent = (email_count['emails']*3) / float(60)
 
-    return num_emails, emails_per_thread, time_spent
+    return email_count['emails'], emails_per_thread, time_spent
+
+def batchGetThreads(http, service, userId, threadIds):
+    batch = service.new_batch_http_request()
+    for threadId in threadIds:
+        batch.add(service.users().threads().get(userId=userId,
+            id=threadId), callback=parseThread)
+    batch.execute(http=http)

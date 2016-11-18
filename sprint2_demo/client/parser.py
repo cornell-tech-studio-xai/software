@@ -31,10 +31,10 @@ def batchGet(http, service, userId, messageIds):
             id=messageId, format='raw'), callback=activ_parser.parseMsg)
     batch.execute(http=http)
 
-def create_output(service, meetings_meta):
+def create_output(http, service, meetings_meta):
     output = {}
 
-    num_emails, emails_per_thread, time_spent = activ_parser.getEmailStats(service, meetings_meta['threads'])
+    num_emails, emails_per_thread, time_spent = activ_parser.getEmailStats(http, service, meetings_meta['threads'])
 
     # Multiply by 2 since we are only collecting 2 week's worth of e-mails (for demo-time sake)
     xai_stats = ["In the last month you...",
@@ -112,7 +112,7 @@ def parse(auth_code):
 
     print(str(len(meetings_meta['threads'])) + " Threads")
 
-    output = create_output(service, meetings_meta)
+    output = create_output(http, service, meetings_meta)
 
     end_time = time.time()
 
