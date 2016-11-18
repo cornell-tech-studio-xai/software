@@ -17,20 +17,8 @@
   };
 function onSignIn(googleUser) {
   grantOffline(googleUser);
-	/*var profile = googleUser.getBasicProfile();
-        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
-        debugger;
-	//signOut();
-	location.href="/results";*/
  }
+
  function grantOffline(googleUser) {
      var user = googleUser;
      gapi.auth2.getAuthInstance().grantOfflineAccess({
@@ -56,12 +44,16 @@ function onSignIn(googleUser) {
      console.log("ID Token: " + id_token);*/
      //callPython(id_token);
      //signOut();
-   //location.href="/results";
+     //location.href="/dashboard";
  }
   function callPython(code) {
       Meteor.call("parseEmails", [code], function(error, results) {
           console.log(results.content);
       });
+  }
+
+  function toDash(){
+    location.href="/dashboard";
   }
   </script>
   </body>
@@ -187,7 +179,7 @@ function onSignIn(googleUser) {
             <div class="well">
                 <h4 style="text-align:center">Personalize</h4>
                 <div style="width:100%;margin: 0 auto;padding:5em;">
-                   <!--<div class="g-signin2" data-longtitle="true" data-onsuccess="onSignIn" data-theme="dark" style="width:200px text-align:center"></div>-->
+                   <!--div class="g-signin2" data-longtitle="true" data-onsuccess="onSignIn" data-theme="dark" style="width:200px;text-align:center"></div-->
                    <a type="button" class="btn btn-primary btn-block" onclick="toDash()">Go!</a>
                 </div>
                 <!--<a type="button" class="btn btn-primary btn-block" href="index.html">Go!</a>-->
@@ -262,10 +254,5 @@ function onSignIn(googleUser) {
 
   </div>
   <!-- /.container -->
-  <script>
-  function toDash(){
-    location.href="/dashboard";
-  }
-  </script>
 
 </template>
