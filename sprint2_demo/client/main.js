@@ -13,9 +13,19 @@ Router.route('/', function () {
 
 
 Router.route('/Loading');
-Router.route('/Results');
+//Router.route('/Results');
 Router.route('/dashboard');
 Router.route('/test');
+
+/*Router.map(function () {
+   this.route('results', {
+        path: '/results/:auth_code',
+        data: function () {
+                return auth_code;
+        }
+
+   })
+});*/
 
 function onSignIn(googleUser) {
         // Useful data for your client-side scripts:

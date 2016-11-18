@@ -105,6 +105,6 @@ def getEmailStats(service, thread_ids):
 
     # in hours
     #time_spent = (meetings_meta['sent'] * 3 + meetings_meta['received']) / float(60)
-    time_spent = (num_emails*2) / float(60)
+    time_spent = (num_emails*3) / float(60)
 
     return num_emails, emails_per_thread, time_spent

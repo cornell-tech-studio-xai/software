@@ -1,14 +1,13 @@
 <template name="Results">
 <canvas id="pdfcanvas" style="width:100%"></canvas>
-<h1 id="load-text" style="color:white;text-align:center"><br><br><br>Hang tight, we're working on it!</h1>
 <script>
-	document.body.style.backgroundImage = "url(/images/loading.gif)";
-	document.body.style.backgroundRepeat = "no-repeat";
-	document.body.style.backgroundSize = "cover";
+	//document.body.style.backgroundImage = "url(/images/loading.gif)";
+	//document.body.style.backgroundRepeat = "no-repeat";
+	//document.body.style.backgroundSize = "cover";
 
-$('#pdfcanvas').hide();
+//$('#pdfcanvas').hide();
 
-setTimeout(showPdf, 3000);
+//setTimeout(showPdf, 3000);
 
 function showPdf() {
 var url = "/pdf/results.pdf";
@@ -37,5 +36,7 @@ PDFJS.getDocument(url).then(function getPdfHelloWorld(pdf) {
     });
 });
 }
+
+showPdf()
 </script>
 </template>
