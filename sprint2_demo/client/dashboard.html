@@ -1,6 +1,5 @@
 <template name="dashboard">
     {{> liveChatBox}}
-
   <div id="wrapper">
 
       <!-- Navigation -->
@@ -98,7 +97,7 @@
                   </ul>
               </li>-->
               <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Evan Kesten <b class="caret"></b></a>
                   <ul class="dropdown-menu">
 
                       <li>
@@ -124,10 +123,10 @@
             </div>
             <div class="modal-body">
               <img class="shredder" src="/images/shredder.gif" style="width:100%; margin:auto; display:none" />
-              <h2><strong>We are sorry to see you go..<i class="fa fa-frown-o" aria-hidden="true"></i></strong></h2>
+              <h2>We are sorry to see you go..<i class="fa fa-frown-o" aria-hidden="true"></i></h2>
               <p style="padding:1.3em"></p>
-              <h3>Would you like to receive statistics on your bot usage and new bot updates?</h3>
-              <h3>(we promise to only email you once a month)</h3>
+              <h3 style="font-weight:300">Would you like to receive statistics on your bot usage and new bot updates?</h3>
+              <h3 style="font-weight:300">(we promise to only email you once a month)</h3>
               <p style="padding:1.3em"></p>
             </div>
             <div class="modal-footer">
@@ -167,7 +166,7 @@
 
               <div class="row">
                   <div class="col-lg-4 col-md-6">
-                    <img class="three-images" style="margin-left:0px" src="/images/1.jpeg" />
+                    <img class="three-images" style="padding-left:0px" src="/images/1.jpeg" />
 
                   </div>
                   <div class="col-lg-4 col-md-6">
@@ -175,7 +174,7 @@
 
                   </div>
                   <div class="col-lg-4 col-md-6">
-                    <img class="three-images" src="/images/3.jpeg" />
+                    <img class="three-images" style="padding-right:0px" src="/images/3.jpeg" />
 
                   </div>
               </div>
@@ -189,25 +188,100 @@
                                 <div class="col-sm-8 col-md-8">
                                   <div class="row">
                                     <div class="col-sm-3 col-md-3">
-                                      <img class="cut avatar" src="/images/x.ai.jpeg">
+                                      <img class="cut avatar" id="panel_image" src="/images/x.ai.jpeg">
                                     </div>
                                     <div class="col-sm-9 col-md-9">
-                                      <h1 class="heading">x.ai
+                                      <h1 class="heading" id="panel_heading">x.ai
                                         <button type="button" class="test btn btn-default">Chat with Amy</button>
                                       </h1>
                                     </div>
 
                                       <div class="col-sm-12 col-md-12">
-                                        <h4 class="introtext">x.ai is a blah blah blah </h4>
+                                        <h4 class="introtext" id="description">x.ai is a blah blah blah </h4>
                                         <p style="padding:15px"></p>
-                                        <h4 class="introtext"><i class="fa fa-envelope-o" aria-hidden="true" style="padding-right:10px"></i>  You sent <span class="bold">55 emails</span></h4>
-                                        <h4 class="introtext"><i class="fa fa-clock-o" aria-hidden="true" style="padding-right:10px"></i>  You spend <span class="bold">3.8 hours</span></h4>
-                                        <h4 class="introtext"><i class="fa fa-repeat" aria-hidden="true" style="padding-right:10px"></i>  It takes you <span class="bold">11 emails</span> on average to schedule meeting</h4>
+                                        <h4 class="introtext"><span id='line-1'></span></h4>
+
+                                        <h4 class="introtext"><i class="fa fa-envelope-o" aria-hidden="true" style="padding-right:10px"></i><span id='line-2'></span></h4>
+                                        <h4 class="introtext"><i class="fa fa-clock-o" aria-hidden="true" style="padding-right:10px"></i><span id='line-3'></span></h4>
+                                        <h4 class="introtext"><i class="fa fa-repeat" aria-hidden="true" style="padding-right:10px"></i><span id='line-4'></span></h4>
                                       </div>
                                     </div>
                                 </div>
                                   <div class="col-sm-4 col-md-4">
                                      <img class="fill" alt="" src="/images/x.ai-email.jpeg"/>
+                                  </div>
+
+                        </div>
+                        <!-- /.panel body -->
+                      </div>
+                      <!-- /.row -->
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="panel panel-default">
+                     <div class="row">
+                       <div class="panel-body">
+                                <div class="col-sm-8 col-md-8">
+                                  <div class="row">
+                                    <div class="col-sm-3 col-md-3">
+                                      <img class="cut avatar" src="/images/ordernow.jpeg">
+                                    </div>
+                                    <div class="col-sm-9 col-md-9">
+                                      <h1 class="heading" id="panel_heading" style="font-size:3.5em">OrderNow
+                                        <button type="button" class="test btn btn-default">Chat with OrderNow</button>
+                                      </h1>
+                                    </div>
+
+                                      <div class="col-sm-12 col-md-12">
+                                        <h4 class="introtext"> Hungry? Order food from a chatbot now. Over 10,000 restaurants. </h4>
+                                        <p style="padding:15px"></p>
+
+                                        <h4 class="introtext"><i class="fa fa-envelope-o" aria-hidden="true" style="padding-right:10px"></i><span>You sent 15 emails this month ordering food through Seamless</span></h4>
+                                        <h4 class="introtext"><i class="fa fa-clock-o" aria-hidden="true" style="padding-right:10px"></i><span>You ordered Padthai from A Taste of Thai 4 times last month.</span></h4>
+                                        <h4 class="introtext"><i class="fa fa-repeat" aria-hidden="true" style="padding-right:10px"></i><span>Order your favorite dish in 5 seconds with Ordernow.</span></h4>
+                                      </div>
+                                    </div>
+                                </div>
+                                  <div class="col-sm-4 col-md-4">
+                                     <img class="fill" style="height:25em; width:16em" alt="" src="/images/ordernow_screenshot.png"/>
+                                  </div>
+
+                        </div>
+                        <!-- /.panel body -->
+                      </div>
+                      <!-- /.row -->
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="panel panel-default">
+                     <div class="row">
+                       <div class="panel-body">
+                                <div class="col-sm-8 col-md-8">
+                                  <div class="row">
+                                    <div class="col-sm-3 col-md-3">
+                                      <img class="cut avatar" id="panel_image" src="/images/rideshare.jpeg">
+                                    </div>
+                                    <div class="col-sm-9 col-md-9">
+                                      <h1 class="heading" id="panel_heading" style="font-size:3.5em">Rideshare
+                                        <button type="button" class="test btn btn-default">Chat with Rideshare</button>
+                                      </h1>
+                                    </div>
+
+                                      <div class="col-sm-12 col-md-12">
+                                        <h4 class="introtext" id="description">Ridesharebot finds you shared rides on Uber, Lyft and Via. </h4>
+                                        <p style="padding:15px"></p>
+
+                                        <h4 class="introtext"><i class="fa fa-envelope-o" aria-hidden="true" style="padding-right:10px"></i><span>You spent $289 last month on Uber and Lyft</span></h4>
+                                        <h4 class="introtext"><i class="fa fa-clock-o" aria-hidden="true" style="padding-right:10px"></i><span>Saves up to $50 hours per week by using Rideshare.</span></h4>
+                                      </div>
+                                    </div>
+                                </div>
+                                  <div class="col-sm-4 col-md-4">
+                                     <img class="fill" style="height:25em; width:16em" alt="" src="/images/rideshare_screenshot.png"/>
                                   </div>
 
                         </div>
@@ -226,15 +300,26 @@
     function callPython(code) {
       Meteor.call("parseEmails", [code], function(error, results) {
           console.log(results.content);
-
+          var data =  JSON.parse(results.content);
+          //var heading = document.getElementById('panel_heading');
+          var logo = document.getElementById('panel_image');
+          var description = document.getElementById('description');
+          //heading.innerHTML = "x.ai";
           // Use results.content json object to create html page
+          description.innerHTML = data.xai.description;
+          logo.src=data.xai.logo;
+          document.getElementById('line-1').innerHTML = data.xai.stats[0];
+          document.getElementById('line-2').innerHTML = data.xai.stats[1];
+          document.getElementById('line-3').innerHTML = data.xai.stats[2];
+          document.getElementById('line-4').innerHTML = data.xai.stats[3];
 
+          console.log(description);
           $('#load-text').hide();
           $('#wrapper').show();
       })
   }
 
-  	document.body.style.backgroundImage = "url(/images/loading.gif)";
+  document.body.style.backgroundImage = "url(/images/loading.gif)";
 	document.body.style.backgroundRepeat = "no-repeat";
 	document.body.style.backgroundSize = "cover"
 
