@@ -35,6 +35,10 @@ footer {
     }
 }
 
+#live-chat-box {
+  visibility: hidden;
+}
+
 #wrapper {
     padding-left: 0;
 }

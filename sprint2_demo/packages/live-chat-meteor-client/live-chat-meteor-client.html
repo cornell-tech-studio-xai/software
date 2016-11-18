@@ -1,0 +1,17 @@
+<template name="liveChatBox">
+    <div id="live-chat-box" class="live-chat-box js-chat-box">
+        <div id="live-chat-box-header" class="live-chat-box-header js-chat-box-close">
+            <div class="live-chat-header-title">
+                Meet Amy
+            </div>
+        </div>
+        <div id="live-chat-messages" class="live-chat-messages js-chat-messages">
+            {{#each liveChatMessages}}
+                <div class="live-chat-message-item">
+                    <div class="message {{ #if isFromClient}} client-message {{/if}}">{{msg}}</div>
+                </div>
+            {{/each}}
+        </div>
+        <textarea id="live-chat-submit-input" class="live-chat-submit-input js-chat-submit-input" rows="1" placeholder="Add new message..."></textarea>
+    </div>
+</template>
