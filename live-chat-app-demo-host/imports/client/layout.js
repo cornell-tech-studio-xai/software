@@ -106,7 +106,7 @@ Template.chatBoxMessageItem.helpers({
     autoRespond: function(msg, sid) {
         console.log(msg);
         var user1 = "Hi";
-        var bot1 = "Hi Nikhil, I’m Amy from x.ai. I am your AI powered personal assistant for scheduling meetings. Want to see how I work? Just ask me any question related to scheduling, such as 'show me how you work' or 'what can you do for me'."; 
+        var bot1 = "Hi Evan, I’m Amy from x.ai. I am your AI powered personal assistant for scheduling meetings. Want to see how I work? Just ask me any question related to scheduling, such as 'show me how you work' or 'what can you do for me'.";
         user2 = "How do you work?";
         bot2 = "You can interact with me as you would with any other person – and I’ll do all the tedious email ping pong that comes along with scheduling a meeting. All you need to do is cc: amy@x.ai when sending a mail to someone you want to meet";
         user3 = "What do I say?"
