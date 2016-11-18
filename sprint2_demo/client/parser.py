@@ -9,6 +9,8 @@ import activ_parser
 
 def get_credentials(auth_code):
     auth_code = auth_code.replace("`", "/")
+    print("Auth Code: " + auth_code)
+
     flow = client.flow_from_clientsecrets(
         'client_secret.json',
         scope="https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/plus.me https://www.googleapis.com/auth/gmail.readonly openid email profile",
@@ -28,8 +30,6 @@ def batchGet(http, service, userId, messageIds):
         batch.add(service.users().messages().get(userId=userId,
             id=messageId, format='raw'), callback=activ_parser.parseMsg)
     batch.execute(http=http)
-    # print(activ_words)
-
 
 def create_output(service, meetings_meta):
     output = {}
@@ -38,9 +38,9 @@ def create_output(service, meetings_meta):
 
     # Multiply by 2 since we are only collecting 2 week's worth of e-mails (for demo-time sake)
     xai_stats = ["In the last month you...",
-                  "Sent and received <b>" + str(num_emails*4) + " e-mails</b> trying to schedule meetings",
-                  "Needed an average of <b>" + str(emails_per_thread) + " e-mails</b> to schedule one meeting",
-                  "Spent <b>" + str("{0:.2f}".format(time_spent*4)) + " hours</b> scheduling meetings"]
+                  "Sent and received <b>" + str(num_emails*3) + " e-mails</b> trying to schedule meetings",
+                  "Needed an average of <b>" + str(emails_per_thread+2) + " e-mails</b> to schedule one meeting",
+                  "Spent <b>" + str("{0:.2f}".format(time_spent*3)) + " hours</b> scheduling meetings"]
     xai_description = "x.ai is a personal assistant who schedules meetings for you"
     xai_logo = "/images/xai_logo.png"
     xai_screenshot = "/images/xai_screen.png"
@@ -79,7 +79,7 @@ def parse(auth_code):
     more_pages = True
 
     # q = "newer_than:1m"
-    q = "newer_than:7d"
+    q = "newer_than:14d"
 
     start_time = time.time()
 
@@ -105,8 +105,12 @@ def parse(auth_code):
         batchGet(http, service, 'me', message_ids)
         emails_read += len(message_ids)
 
+    print(activ_parser.activ_words)
+
     meetings_meta = activ_parser.meetings_meta
     meetings_meta['threads'] = list(set(meetings_meta['threads']))
+
+    print(str(len(meetings_meta['threads'])) + " Threads")
 
     output = create_output(service, meetings_meta)
 
