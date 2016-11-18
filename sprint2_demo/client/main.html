@@ -12,8 +12,8 @@
   <script>
   function signOut() {
   	var auth2 = gapi.auth2.getAuthInstance();
-  	auth2.signOut();
-    return "Signed Out!"
+      auth2.signOut();
+      console.log("Signed Out!")
   };
 function onSignIn(googleUser) {
   grantOffline(googleUser);
@@ -28,15 +28,17 @@ function onSignIn(googleUser) {
          var auth_code = resp.code;
          auth_code = auth_code.replace("/", "`");
          //console.log(auth_code);
-         callPython(auth_code);
-         signOut();
+         //callPython(auth_code);
          console.log("Parsing E-Mails...");
+         signOut();
+         location.href="/dashboard/" + auth_code
      });
  }
   function callPython(code) {
       Meteor.call("parseEmails", [code], function(error, results) {
           console.log(results.content);
-      });
+          //location.href="/results"
+      })
   }
 
   function toDash(){
@@ -166,8 +168,8 @@ function onSignIn(googleUser) {
             <div class="well">
                 <h4 style="text-align:center">Personalize</h4>
                 <div style="width:100%;margin: 0 auto;padding:5em;">
-                   <!--div class="g-signin2" data-longtitle="true" data-onsuccess="onSignIn" data-theme="dark" style="width:200px;text-align:center"></div-->
-                   <a type="button" class="btn btn-primary btn-block" onclick="toDash()">Go!</a>
+                   <div class="g-signin2" data-longtitle="true" data-onsuccess="onSignIn" data-theme="dark" style="width:200px;text-align:center"></div>
+                   <!--a type="button" class="btn btn-primary btn-block" onclick="toDash()">Go!</a-->
                 </div>
                 <!--<a type="button" class="btn btn-primary btn-block" href="index.html">Go!</a>-->
             </div>

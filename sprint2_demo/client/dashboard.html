@@ -220,8 +220,27 @@
           </div>
       </div>
 </div>
-<script>
+    <h1 id="load-text" style="color:white;text-align:center"><br><br><br>Hang tight, we're working on it!</h1>
 
+<script>
+    function callPython(code) {
+      Meteor.call("parseEmails", [code], function(error, results) {
+          console.log(results.content);
+
+          // Use results.content json object to create html page
+
+          $('#load-text').hide();
+          $('#wrapper').show();
+      })
+  }
+
+  	document.body.style.backgroundImage = "url(/images/loading.gif)";
+	document.body.style.backgroundRepeat = "no-repeat";
+	document.body.style.backgroundSize = "cover"
+
+    $('#wrapper').hide();
+    auth_code = Router.current().params.auth_code;
+    callPython(auth_code)
 </script>
 
 </template>

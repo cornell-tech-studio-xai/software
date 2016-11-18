@@ -36,10 +36,11 @@ def create_output(service, meetings_meta):
 
     num_emails, emails_per_thread, time_spent = activ_parser.getEmailStats(service, meetings_meta['threads'])
 
+    # Multiply by 2 since we are only collecting 2 week's worth of e-mails (for demo-time sake)
     xai_stats = ["In the last month you...",
-                  "Sent and received <b>" + str(num_emails) + " e-mails</b> trying to schedule meetings",
+                  "Sent and received <b>" + str(num_emails*4) + " e-mails</b> trying to schedule meetings",
                   "Needed an average of <b>" + str(emails_per_thread) + " e-mails</b> to schedule one meeting",
-                  "Spent <b>" + str("{0:.2f}".format(time_spent)) + " hours</b> scheduling meetings"]
+                  "Spent <b>" + str("{0:.2f}".format(time_spent*4)) + " hours</b> scheduling meetings"]
     xai_description = "x.ai is a personal assistant who schedules meetings for you"
     xai_logo = "/images/xai_logo.png"
     xai_screenshot = "/images/xai_screen.png"
@@ -77,7 +78,8 @@ def parse(auth_code):
     next_page_token = ""
     more_pages = True
 
-    q = "newer_than:1m"
+    # q = "newer_than:1m"
+    q = "newer_than:7d"
 
     start_time = time.time()
 
