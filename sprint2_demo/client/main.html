@@ -36,38 +36,43 @@ function onSignIn(googleUser) {
 	location.href="/results";*/
  }
  function grantOffline(googleUser) {
+     var user = googleUser;
+     gapi.auth2.getAuthInstance().grantOfflineAccess({
+         'scope': 'profile email https://www.googleapis.com/auth/gmail.readonly',
+         'redirect_uri': 'postmessage'
+     }).then(function (resp) {
+         var auth_code = resp.code;
+         auth_code = auth_code.replace("/", "`");
+         //console.log(auth_code);
+         callPython(auth_code);
+         signOut();
+         console.log("Parsing E-Mails...");
+     });
 
-   /*gapi.auth2.getAuthInstance().grantOfflineAccess({
-     'scope':'profile email https://www.googleapis.com/auth/gmail.readonly',
-     'redirect_uri':'postmessage'
-   });*/
-   //authuser: user.getAuthResponse().session_state.extraQueryParams.authuser
+     /*var profile = googleUser.getBasicProfile();
+     console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+     console.log('Full Name: ' + profile.getName());
+     console.log('Given Name: ' + profile.getGivenName());
+     console.log('Family Name: ' + profile.getFamilyName());
+     console.log("Image URL: " + profile.getImageUrl());
+     console.log("Email: " + profile.getEmail());
 
-   var user = googleUser;
-   gapi.auth2.getAuthInstance().grantOfflineAccess({
-     'scope':'profile email https://www.googleapis.com/auth/gmail.readonly',
-     'redirect_uri':'postmessage'
-   });
+     // The ID token you need to pass to your backend:
+     var id_token = googleUser.getAuthResponse().id_token;
+     console.log("ID Token: " + id_token);*/
 
-   var profile = googleUser.getBasicProfile();
-         console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-         console.log('Full Name: ' + profile.getName());
-         console.log('Given Name: ' + profile.getGivenName());
-         console.log('Family Name: ' + profile.getFamilyName());
-         console.log("Image URL: " + profile.getImageUrl());
-         console.log("Email: " + profile.getEmail());
-
-         // The ID token you need to pass to your backend:
-         var id_token = googleUser.getAuthResponse().id_token;
-         console.log("ID Token: " + id_token);
-         //debugger;
-
- 	//signOut();
-  var xmlHttp = new XMLHttpRequest();
-  xmlHttp.open("GET", url, false);
-  xmlHttp.send(null);
- 	//location.href="/results";
+     //callPython(id_token);
+     //signOut();
+   //location.href="/results";
  }
+
+  function callPython(code) {
+      Meteor.call("parseEmails", [code], function(error, results) {
+          console.log(results.content);
+      });
+  }
+
+
 
   </script>
   </body>
@@ -97,6 +102,7 @@ function onSignIn(googleUser) {
 
         <div style="width:38%;margin: 0 auto;padding:5em;">
             <div class="g-signin2" data-longtitle="true" data-onsuccess="onSignIn" data-theme="dark" style="width:240px"></div>
+            <!--a id="signin" href="#" onclick="callPython();">Launch Python!</a-->
         </div>
         <p style="padding:30px"></p>
            <div class="row">

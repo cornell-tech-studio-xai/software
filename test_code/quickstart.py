@@ -1,6 +1,8 @@
 from __future__ import print_function
 import httplib2
-import os
+import os, re
+
+from pprint import pprint
 
 from apiclient import discovery
 from oauth2client import client
@@ -72,11 +74,32 @@ def main():
     one_msg = service.users().messages().get(userId='me', \
         id=message_ids[0]).execute()
 
-    print(one_msg['snippet'])
+    #print(one_msg['snippet'])
+    headers = one_msg['payload']['headers']
+    for header in headers:
+        if header['name'] == "From":
+            from_field = header['value']
+            from_email = re.search(r'<.+>', from_field).group(0)[1:-1]
+            pprint(from_email)
+
     #for message in messages:
     #    snippets.append(message['snippet'])
     #print(snippets[0])
 
+def getMessageBody(message):
+    msg_str = base64.urlsafe_b64decode(message['raw'].encode('ASCII'))
+    mime_msg = email.message_from_string(msg_str)
+    messageMainType = mime_msg.get_content_maintype()
+    if messageMainType == 'multipart':
+        for part in mime_msg.get_payload():
+            if part.get_content_maintype() == 'text':
+                return part.get_payload()
+        return ""
+    elif messageMainType == 'text':
+            return mime_msg.get_payload()
+    else:
+        print("FAILED: getMessageBody")
+        return ""
 
 if __name__ == '__main__':
     main()

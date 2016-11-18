@@ -3,7 +3,6 @@ import httplib2
 import os, time
 
 from apiclient import discovery, errors
-from apiclient.http import BatchHttpRequest
 from oauth2client import client
 from oauth2client import tools
 from oauth2client.file import Storage
@@ -12,6 +11,7 @@ from activ_parser import parseMsg, getMessageBody, activ_words
 
 try:
     import argparse
+
     flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
 except ImportError:
     flags = None
@@ -21,6 +21,7 @@ except ImportError:
 SCOPES = 'https://www.googleapis.com/auth/gmail.readonly'
 CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'Gmail API Python Quickstart'
+
 
 def get_credentials():
     """Gets valid user credentials from storage.
@@ -45,18 +46,20 @@ def get_credentials():
         flow.user_agent = APPLICATION_NAME
         if flags:
             credentials = tools.run_flow(flow, store, flags)
-        else: # Needed only for compatibility with Python 2.6
+        else:  # Needed only for compatibility with Python 2.6
             credentials = tools.run(flow, store)
         print('Storing credentials to ' + credential_path)
     return credentials
 
+
 def batchGet(http, service, userId, messageIds):
     batch = service.new_batch_http_request()
     for messageId in messageIds:
-        batch.add(service.users().messages().get(userId=userId, \
+        batch.add(service.users().messages().get(userId=userId,
             id=messageId, format='raw'), callback=parseMsg)
     batch.execute(http=http)
-    #print(activ_words)
+    # print(activ_words)
+
 
 def createOutputFile(results):
     for word, struct in results.iteritems():
@@ -64,6 +67,7 @@ def createOutputFile(results):
         for next in struct['sequence']:
             sequence += " " + next
         print(sequence + " : " + str(struct['count']))
+
 
 def main():
     """Shows basic usage of the Gmail API.
@@ -75,11 +79,11 @@ def main():
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('gmail', 'v1', http=http)
 
-    #results = service.users().labels().list(userId='me').execute()
-    #labels = results.get('labels', [])
+    # results = service.users().labels().list(userId='me').execute()
+    # labels = results.get('labels', [])
 
     emails_read = 0
-    max_emails = 1000
+    max_emails = 400
 
     next_page_token = ""
     more_pages = True
@@ -88,11 +92,11 @@ def main():
 
     meta = service.users().messages().list(userId='me').execute()
 
-    while(emails_read < max_emails and more_pages):
+    while (emails_read < max_emails and more_pages):
         # This only executes after the first time (for future pages)
         if next_page_token:
             meta = service.users().messages().list( \
-            userId='me', pageToken=next_page_token).execute()
+                userId='me', pageToken=next_page_token).execute()
 
         if 'messages' not in meta:
             print("No Messages Found")
@@ -110,11 +114,12 @@ def main():
 
     end_time = time.time()
     print("Parsing " + str(emails_read) + " emails took " + \
-        str(end_time-start_time) + " seconds")
+          str(end_time - start_time) + " seconds")
     print("Final word-counts:")
-    #print(activ_words)
+    # print(activ_words)
     createOutputFile(activ_words)
     return
+
 
 if __name__ == '__main__':
     main()
