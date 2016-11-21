@@ -7,6 +7,15 @@ meetings_meta = {"threads": [], "received": 0, "sent": 0}
 
 email_count = {"threads": 0, "emails": 0}
 
+
+def reset():
+    meetings_meta["threads"] = []
+    meetings_meta["received"] = 0
+    meetings_meta["sent"] = 0
+    email_count["threads"] = 0
+    email_count["emails"] = 0
+
+
 def parseMsg(request_id, response, exception):
     if exception is not None:
         print("FAILED: parseMsg: " + str(sys.exc_info()))
@@ -28,6 +37,7 @@ def parseMsg(request_id, response, exception):
                         #    meetings_meta['received'] += 1
                     break
         pass
+
 
 def parseThread(request_id, response, exception):
     if exception is not None:
