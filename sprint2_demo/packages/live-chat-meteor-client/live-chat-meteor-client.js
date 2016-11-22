@@ -38,5 +38,10 @@ Template.liveChatBox.helpers({
     liveChatMessages() {
         const instance = Template.instance();
         return instance.liveChatMessages.get();
+    },
+    autoScroll() {
+        var objdiv = document.getElementById('live-chat-messages');
+        console.log(objdiv);
+        objdiv.scrollTop = objdiv.scrollHeight;
     }
 });

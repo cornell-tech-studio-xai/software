@@ -45,12 +45,13 @@ function onSignIn(googleUser) {
     location.href="/dashboard";
   }
   </script>
+
   </body>
 
 <template name="main">
   <!--<br>-->
   <!---<button type="button" class="btn btn-primary" onclick="location.href = '/loading'">Analyze!</button>-->
-
+  {{> liveChatBox}}
   <!-- Navigation -->
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">

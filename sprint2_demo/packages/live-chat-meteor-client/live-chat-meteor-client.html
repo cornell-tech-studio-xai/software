@@ -10,6 +10,7 @@
                 <div class="live-chat-message-item">
                     <div class="message {{ #if isFromClient}} client-message {{/if}}">{{msg}}</div>
                 </div>
+                {{autoScroll}}
             {{/each}}
         </div>
         <textarea id="live-chat-submit-input" class="live-chat-submit-input js-chat-submit-input" rows="1" placeholder="Add new message..."></textarea>
