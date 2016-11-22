@@ -62,6 +62,14 @@ footer {
     background-color: #f1f1f1;
 }
 /*Customize Bootstrap */
+.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
+    color: #9d9d9d;
+    background-color: transparent;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #fff;}
+
 .navbar-inverse {
     background-color: #563d7c;
     border-color: #563d7c;
@@ -155,7 +163,12 @@ h4.introtext{
   width:100%;
 }
 .cut{
-  width: 70%
+  width: 80%
+}
+.screenshot{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 .avatar {
     /* border-radius: 8px; */
@@ -172,8 +185,8 @@ h4.introtext{
   padding: 30px;
 }
 .panel{
-    padding: 10px;
-    margin-bottom: 20px;
+    padding: 1em;
+    margin-bottom: 5em;
     background-color: #fff;
     border: 0px;
     border-radius: 0px;
@@ -209,7 +222,7 @@ h4.introtext{
     padding-top: 15px;
     padding-bottom: 15px;
     line-height: 20px;
-    color: #999;
+    color: #fff;
 }
 
 .top-nav>li>a:hover,
@@ -218,7 +231,7 @@ h4.introtext{
 .top-nav>.open>a:hover,
 .top-nav>.open>a:focus {
     color: #fff;
-    background-color: #000;
+    background-color: #320a5c;
 }
 
 .top-nav>.open>.dropdown-menu {
