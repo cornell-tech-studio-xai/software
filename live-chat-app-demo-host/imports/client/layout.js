@@ -104,7 +104,6 @@ Template.chatBox.helpers({
 
 Template.chatBoxMessageItem.helpers({
     autoRespond: function(msg, sid) {
-        console.log(msg);
         var user1 = "Hi";
         var bot1 = "Hi Evan, I’m Amy from x.ai. I am your AI powered personal assistant for scheduling meetings. Want to see how I work? Just ask me any question related to scheduling, such as 'show me how you work' or 'what can you do for me'.";
         user2 = "How do you work?";
@@ -117,8 +116,12 @@ Template.chatBoxMessageItem.helpers({
         bot5 = "I’m completely FREE! But there is a wait. If you to try me now and get more powerful features, x.ai also offers a paid professional version here: https://x.ai/pricing/";
         user6 = "How do I sign up?";
         bot6 = "Sign up for your free trial here: https://x.ai/";
-        user_msgs = [user1, user2, user3, user4, user5, user6];
-        bot_msgs = [bot1, bot2, bot3, bot4, bot5, bot6];
+        user7 = "Will you speak on my behalf?";
+        bot7 = "No. I will send the mail as Amy Ingram, but will let the recipient know that I'm an AI powered bot";
+        user8 = "What if someone cancels the meeting?"
+        bot8 = "I will reschedule with them";
+        user_msgs = [user1, user2, user3, user4, user5, user6, user7, user8];
+        bot_msgs = [bot1, bot2, bot3, bot4, bot5, bot6, bot7, bot8];
         for(i=0; i<user_msgs.length; i++){
             if(msg==user_msgs[i] && sid==state.get('openedChat'))
                 Meteor.call('addChatMessage', bot_msgs[i], state.get('openedApp'), state.get('openedChat'), false);
