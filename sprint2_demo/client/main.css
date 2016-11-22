@@ -29,6 +29,19 @@ footer {
 .botlist .bot a{
   color:#563d7c;
 }
+
+.chaticon{
+  display: inline-block;
+  font-size:1em;
+  color:#563d7c;
+  cursor:pointer;
+}
+
+.chaticon:hover .fa-comment-o:before{
+  content: "\f075";
+  color:#563d7c;
+}
+
 @media(min-width:768px) {
     body {
         margin-top: 50px;
@@ -114,7 +127,9 @@ h1.heading{
   font-size: 4em;
   color:#563d7c;
 }
-
+b {
+  color:#563d7c;
+}
 h3.heading{
   line-height: 100px;
   margin: 0px;
@@ -124,10 +139,12 @@ h3.introtext{
   font-size:2em;
   color:#333;
   padding-left: 15px;
+  font-weight: 300;
 }
 h4.introtext{
   color:#808080;
   padding-left: 15px;
+  font-weight: 300;
 }
 .panel-default>.panel-heading {
     color: #333;
