@@ -32,6 +32,16 @@ Router.map(function () {
 
    })
 });
+Template.main.events({
+	'click .chaticon'(e) {
+		e.preventDefault();
+		chatbox = document.getElementById('live-chat-box')
+		if(chatbox.style.visibility == 'visible')
+			chatbox.style.visibility = 'hidden'
+		else
+			chatbox.style.visibility = 'visible';
+	}
+});
 
 function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
